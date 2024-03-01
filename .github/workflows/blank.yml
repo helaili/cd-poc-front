@@ -27,4 +27,20 @@ jobs:
         with:
           name: homework_pre
           path: math-homework.txt
+      - name: Create a deployment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.repos.createDeployment({
+              owner: context.repo.owner, 
+              repo: context.repo.repo, 
+              task: 'cd',
+              ref: context.sha,
+              environment: 'qa',
+              payload: {
+                run: context.runId
+              }
+            }).then(({data}) => {
+              console.log(JSON.stringify(data));    
+            });
       
