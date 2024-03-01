@@ -15,11 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: qa
-      url: https://github.com/octodemo/cd-poc-front/actions/runs/${{ env.GITHUB_RUN_ID }}
+      url: https://github.com/octodemo/cd-poc-front/actions/runs/${{ github.run_id }}
 
     steps:
       - shell: bash
         run: |
+          echo $GITHUB_RUN_ID
           expr 3 + 7 > math-homework.txt
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v4
