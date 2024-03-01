@@ -7,9 +7,15 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
+permissions:
+  deployments:write
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: 
+      name: qa
+      url: ${{ env.GITHUB_RUN_ID }}
 
     steps:
       - shell: bash
@@ -20,3 +26,4 @@ jobs:
         with:
           name: homework_pre
           path: math-homework.txt
+      
