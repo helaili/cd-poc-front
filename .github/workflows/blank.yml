@@ -36,7 +36,7 @@ jobs:
               repo: context.repo.repo, 
               task: 'cd',
               ref: context.sha,
-              environment: 'qa',
+              environment: 'cd',
               payload: {
                 run: context.runId
               }
