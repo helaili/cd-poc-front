@@ -37,6 +37,7 @@ jobs:
               task: 'cd',
               ref: context.sha,
               environment: 'cd',
+              required_contexts: [],
               payload: {
                 run: context.runId
               }
