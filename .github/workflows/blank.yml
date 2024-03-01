@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: qa
-      url: ${{ env.GITHUB_RUN_ID }}
+      url: https://github.com/octodemo/cd-poc-front/actions/runs/${{ env.GITHUB_RUN_ID }}
 
     steps:
       - shell: bash
